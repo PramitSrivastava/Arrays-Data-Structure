@@ -1,0 +1,15 @@
+import numpy as np
+arr = np.array([4 , 2 , 1 , 7 , 8 , 6])
+l = len(arr)
+def FindOut(arr , l):
+    buy = arr[0]
+    maxProfit = 0
+    for i in range(l):
+        if arr[i]<buy:
+            buy = arr[i]
+        elif (arr[i]-buy > maxProfit):
+            sell = arr[i]
+            maxProfit = arr[i] - buy
+
+    return sell,buy,maxProfit
+print(FindOut(arr,l))
