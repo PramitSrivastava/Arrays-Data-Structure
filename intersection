@@ -1,0 +1,11 @@
+import numpy as np
+
+a = np.array([1, 2, 3, 4, 5])
+b = np.array([1, 2, 6 , 3])
+
+intersection = []
+for i in range(len(a)):
+    for j in range(len(b)):
+        if (a[i] == b[j]):
+            intersection.append(a[i])
+print(intersection)
