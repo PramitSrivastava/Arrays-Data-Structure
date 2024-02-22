@@ -1,0 +1,17 @@
+class Solution {
+    public int differenceOfSum(int[] nums) {
+        int len = nums.length;
+        int digitsum = 0;
+        int elementsum = 0;
+        for(int i = 0 ; i < len ; i++) {
+            int num = nums[i]; // Store nums[i] in a separate variable
+            while(num > 0) {
+                int rem = num % 10;
+                digitsum += rem;
+                num = num / 10;
+            }
+            elementsum += nums[i]; // Sum up the original values of nums[i]
+        }
+        return Math.abs(digitsum - elementsum); 
+    }
+}
