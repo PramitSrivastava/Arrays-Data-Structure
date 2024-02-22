@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+
+class Solution {
+    public int[] pivotArray(int[] nums, int pivot) {
+        int len = nums.length;
+        ArrayList<Integer> less = new ArrayList<>();
+        ArrayList<Integer> equal = new ArrayList<>();
+        ArrayList<Integer> more = new ArrayList<>();
+        
+        // Partition the array into three parts: less than, equal to, and greater than the pivot
+        for (int i = 0; i < len; i++) {
+            if (nums[i] < pivot) {
+                less.add(nums[i]);
+            } else if (nums[i] == pivot) {
+                equal.add(nums[i]);
+            } else {
+                more.add(nums[i]);
+            }
+        }
+        
+        // Combine the three partitions
+        ArrayList<Integer> combined = new ArrayList<>();
+        combined.addAll(less);
+        combined.addAll(equal);
+        combined.addAll(more);
+        
+        // Convert ArrayList back to int[]
+        int[] result = new int[combined.size()];
+        for (int i = 0; i < combined.size(); i++) {
+            result[i] = combined.get(i);
+        }
+        
+        return result;
+    }
+}
