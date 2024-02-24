@@ -1,0 +1,19 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+class Solution {
+    public List<Integer> findDuplicates(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+        ArrayList<Integer> duplicates = new ArrayList<>();
+        
+        for (int num : nums) {
+            // if it returns false i.e number can not be entered which means the number is alredy present
+            if (!set.add(num)) { 
+                duplicates.add(num);
+            }
+        }
+        
+        return duplicates;
+    }
+}
