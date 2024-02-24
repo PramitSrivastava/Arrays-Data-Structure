@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+
+class Solution {
+    public int[] separateDigits(int[] nums) {
+        ArrayList<Integer> result = new ArrayList<>();
+
+        // Iterate through each number in the input array
+        for (int num : nums) {
+            separateAndAddDigits(num, result);
+        }
+
+        // Convert ArrayList to int array
+        int[] arr = new int[result.size()];
+        for (int i = 0; i < result.size(); i++) {
+            arr[i] = result.get(i);
+        }
+        return arr;
+    }
+
+    // Function to separate digits of a number and add them to the result list
+    private void separateAndAddDigits(int num, ArrayList<Integer> result) {
+        // Handle the case when the number is 0 separately
+        if (num == 0) {
+            result.add(0);
+            return;
+        }
+
+        // Separate digits and add them to the result list
+        ArrayList<Integer> digits = new ArrayList<>();
+        while (num > 0) {
+            int rem = num % 10;
+            digits.add(rem);
+            num /= 10;
+        }
+
+        // Add digits in reverse order to maintain the original order
+        for (int i = digits.size() - 1; i >= 0; i--) {
+            result.add(digits.get(i));
+        }
+    }
+}
